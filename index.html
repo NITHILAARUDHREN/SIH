@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AccentAssist | Shift Up</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #FDF8F3;
+      color: #1A2A6C;
+    }
+    header {
+      background-color: #F47C26;
+      color: white;
+      padding: 30px 20px;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 2em;
+      margin-bottom: 10px;
+    }
+    section {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    h2 {
+      color: #F47C26;
+      font-size: 1.8em;
+      margin-bottom: 20px;
+    }
+    .card {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+    .flow {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: space-between;
+    }
+    .step {
+      flex: 1 1 250px;
+      background-color: white;
+      border-left: 5px solid #F47C26;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      position: relative;
+      transition: background-color 0.3s ease;
+    }
+    .step:hover {
+      background-color: #FFF3E6;
+    }
+    .tooltip {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #1A2A6C;
+      color: white;
+      padding: 10px;
+      border-radius: 5px;
+      width: 100%;
+      font-size: 0.9em;
+      z-index: 1;
+    }
+    .step:hover .tooltip {
+      display: block;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    ul li {
+      background-color: white;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-left: 5px solid #F47C26;
+    }
+    footer {
+      background-color: #1A2A6C;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>AccentAssist</h1>
+  <p>Speak Smart. Travel Far. Powered by <strong>Shift Up</strong></p>
+</header>
+
+<section>
+  <h2>📌 Problem Statement</h2>
+  <div class="card">
+    <p>India’s linguistic diversity poses a challenge for tourists unfamiliar with regional accents and dialects. Miscommunication can lead to confusion, missed opportunities, and discomfort during travel.</p>
+  </div>
+</section>
+
+<section>
+  <h2>💡 Proposed Solution</h2>
+  <div class="card">
+    <p>AccentAssist is a mobile-first web app that transcribes speech, corrects grammar, adapts dialects, and plays back audio in either US or UK accent. It empowers travelers to communicate clearly and confidently across India.</p>
+
+    <a href="accentbridge_solution  .pdf" target="_blank" style="
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 20px;
+      background-color: #F47C26;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+    ">📂 Click here for more info</a>
+  </div>
+</section>
+
+<section>
+  <h2>⚙️ How It Works</h2>
+  <div class="flow">
+    <div class="step">
+      <h3>🎙️ Step 1: Speak</h3>
+      <div class="tooltip">User speaks into the app using their microphone. The audio is captured and sent for processing.</div>
+    </div>
+    <div class="step">
+      <h3>🧾 Step 2: Transcribe</h3>
+      <div class="tooltip">WhisperX converts the audio into text with precise word-level timestamps for accurate tracking.</div>
+    </div>
+    <div class="step">
+      <h3>✍️ Step 3: Grammar Correction</h3>
+      <div class="tooltip">Prithivida model analyzes the raw transcription and corrects grammatical errors using ML.</div>
+    </div>
+    <div class="step">
+      <h3>🔄 Step 4: Dialect Adaptation</h3>
+      <div class="tooltip">A custom JSON map replaces region-specific vocabulary (e.g., “biscuits” → “cookies”) based on accent preference.</div>
+    </div>
+    <div class="step">
+      <h3>🔊 Step 5: Playback</h3>
+      <div class="tooltip">Coqui TTS generates natural-sounding speech in the selected accent (US or UK) and plays it back to the user.</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>🛠️ Supporting Tools</h2>
+  <ul>
+    <li><strong>WhisperX:</strong> ASR with word-level timestamps</li>
+    <li><strong>Prithivida Grammar Corrector:</strong> ML-based grammar refinement</li>
+    <li><strong>Dialect Adapter:</strong> Rule-based vocabulary mapping</li>
+    <li><strong>Coqui TTS:</strong> Accent-specific speech synthesis</li>
+    <li><strong>webrtcvad:</strong> Voice Activity Detection</li>
+    <li><strong>librosa + soundfile:</strong> Audio loading, resampling, saving</li>
+    <li><strong>FastAPI:</strong> Web framework exposing endpoints</li>
+    <li><strong>Pydantic:</strong> Request/response validation</li>
+  </ul>
+</section>
+
+<section>
+  <h2>📱 API Endpoints</h2>
+  <div class="card">
+    <p><strong>POST /transcribe</strong> → Accepts audio input and returns timestamped transcription.</p>
+    <p><strong>POST /convert_audio</strong> → Accepts text and accent preference, returns synthesized speech.</p>
+  </div>
+</section>
+
+<section>
+  <h2>👨‍💻 About Us</h2>
+  <div class="card">
+    <p><strong>Shift Up</strong> is a team of hardware-software integration experts focused on solving real-world problems with scalable, offline-ready solutions. AccentAssist is our hackathon entry to make travel communication seamless and inclusive.</p>
+    
+    <h3>📬 Contact Our Team</h3>
+    <ul>
+      <li><strong>Dharshini C:</strong> dharshinic@student.tce.edu </li>
+      <li><strong>Joy Eunice S:</strong> joyeunice@student.tce.edu</li>
+      <li><strong>NITHILAATUDHREN:</strong> nithilarudhren@student.tce.edu</li>
+      <li><strong>Ekaashari R R:</strong> ekaashari@student.tce.edu</li>
+      <li><strong>Harshini R N K:</strong> harshinirnk@student.tce.edu </li>
+      <li><strong>Kavinthara N:</strong> kavintharananthakumar@gmail.com</li>
+    </ul>
+  </div>
+</section>
+
+
+<footer>
+  <p>© 2025 Shift Up | SIH</p>
+</footer>
+
+</body>
+</html>
